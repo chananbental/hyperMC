@@ -1,0 +1,8 @@
+{
+  "name": "S1",
+  "atomicPropositions": ["a", "b", "c"],
+  "initialState": "s0",
+  "states": {
+    "s0": { "labels": ["a"], "transitions": ["s0"] }
+  }
+}

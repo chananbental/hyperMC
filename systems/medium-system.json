@@ -1,0 +1,22 @@
+{
+  "atomicPropositions": ["low", "out", "high"],
+  "initialState": "s0",
+  "states": {
+    "s0": {
+      "labels": [],
+      "transitions": ["s0", "s1", "s2"]
+    },
+    "s1": {
+      "labels": ["high"],
+      "transitions": ["s1", "s3"]
+    },
+    "s2": {
+      "labels": ["low", "out"],
+      "transitions": ["s0", "s2", "s3"]
+    },
+    "s3": {
+      "labels": ["low", "out", "high"],
+      "transitions": ["s1", "s2", "s3"]
+    }
+  }
+}

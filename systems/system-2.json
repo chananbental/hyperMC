@@ -1,0 +1,18 @@
+{
+  "atomicPropositions": ["a", "b"],
+  "initialState": "s0",
+  "states": {
+    "s0": {
+      "labels": [],
+      "transitions": ["s1"]
+    },
+    "s1": {
+      "labels": ["a"],
+      "transitions": ["s2"]
+    },
+    "s2": {
+      "labels": ["b"],
+      "transitions": ["s1"]
+    }
+  }
+}
