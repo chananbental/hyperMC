@@ -13,18 +13,13 @@ public final class AutomatonLassoExtractor {
         }
 
         for (Integer init : nba.initialStates()) {
-            List<Integer> prefix = bfs(nba, init, nba.acceptingStates()::contains, false);
-            if (prefix == null) {
-                continue;
+            for (Integer accept : nba.acceptingStates().stream().sorted().toList()) {
+                List<Integer> prefix = bfs(nba, init, s -> s == accept, false);
+                if (prefix == null) continue;
+                List<Integer> loop = bfs(nba, accept, s -> s == accept, true);
+                if (loop == null || loop.size() < 2) continue;
+                return Optional.of(new AutomatonLasso(prefix, loop));
             }
-
-            int accept = prefix.getLast();
-            List<Integer> loop = bfs(nba, accept, s -> s == accept, true);
-            if (loop == null || loop.size() < 2) {
-                continue;
-            }
-
-            return Optional.of(new AutomatonLasso(prefix, loop));
         }
 
         return Optional.empty();

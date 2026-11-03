@@ -1,8 +1,7 @@
 package org.openu.hyperltl.mc;
 
-import org.openu.hyperltl.automaton.BoolAnd;
-import org.openu.hyperltl.automaton.BooleanFormula;
-import org.openu.hyperltl.automaton.NBA;
+import org.openu.hyperltl.automaton.*;
+import org.openu.hyperltl.model.SystemModel;
 
 import java.util.*;
 
@@ -10,6 +9,57 @@ import static java.util.Objects.isNull;
 import static org.openu.hyperltl.utils.Timer.runAndTime;
 
 public final class ProductConstructionWithDecomposition {
+
+    /** Restrict to system traces, then existentially eliminate this trace's alphabet. */
+    public static ProductBuildResult eliminate(NBA left, BuiltSystemAutomaton system,
+                                               SystemModel model, String variable) {
+        ProductBuildResult product = intersect(left, system);
+        Set<String> fixedAps = new HashSet<>(system.nba().atomicPropositions());
+        Map<Integer, List<NBA.Transition>> edges = new LinkedHashMap<>();
+        for (int source = 0; source < product.nba().stateCount(); source++) {
+            int systemState = product.decomposition().get(source).rightState();
+            String stateName = system.automatonStateToSystemState().get(systemState);
+            Set<String> valuation = new HashSet<>();
+            for (String ap : model.states().get(stateName).labels()) valuation.add(ap + "_" + variable);
+            List<NBA.Transition> outgoing = new ArrayList<>();
+            for (NBA.Transition edge : product.nba().outgoing(source)) {
+                BooleanFormula guard = substitute(edge.label(), fixedAps, valuation);
+                if (!(guard instanceof BoolConst constant && !constant.value())) {
+                    outgoing.add(new NBA.Transition(source, edge.to(), guard));
+                }
+            }
+            edges.put(source, outgoing);
+        }
+        NBA nba = product.nba();
+        return new ProductBuildResult(new NBA(
+                nba.atomicPropositions().stream().filter(ap -> !fixedAps.contains(ap)).toList(),
+                nba.initialStates(), edges, nba.acceptingStates(), nba.stateCount()), product.decomposition());
+    }
+
+    private static BooleanFormula substitute(BooleanFormula formula, Set<String> fixed, Set<String> valuation) {
+        return switch (formula) {
+            case BoolConst c -> c;
+            case BoolAtom atom -> fixed.contains(atom.ap()) ? new BoolConst(valuation.contains(atom.ap())) : atom;
+            case BoolNot not -> {
+                BooleanFormula child = substitute(not.child(), fixed, valuation);
+                yield child instanceof BoolConst c ? new BoolConst(!c.value()) : new BoolNot(child);
+            }
+            case BoolAnd and -> {
+                BooleanFormula a = substitute(and.left(), fixed, valuation);
+                BooleanFormula b = substitute(and.right(), fixed, valuation);
+                if (a instanceof BoolConst c) yield c.value() ? b : a;
+                if (b instanceof BoolConst c) yield c.value() ? a : b;
+                yield new BoolAnd(a, b);
+            }
+            case BoolOr or -> {
+                BooleanFormula a = substitute(or.left(), fixed, valuation);
+                BooleanFormula b = substitute(or.right(), fixed, valuation);
+                if (a instanceof BoolConst c) yield c.value() ? a : b;
+                if (b instanceof BoolConst c) yield c.value() ? b : a;
+                yield new BoolOr(a, b);
+            }
+        };
+    }
 
     public static ProductBuildResult intersect(NBA left, BuiltSystemAutomaton rightSystem) {
         return runAndTime(() -> {

@@ -76,11 +76,9 @@ class WitnessReconstructionEngineTest {
 
         assertEquals("pi1", witness.variable());
 
-        assertEquals(2, witness.prefix().size());
+        assertEquals(1, witness.prefix().size());
         assertEquals("s0", witness.prefix().get(0).state());
         assertEquals(Set.of("a_pi1"), witness.prefix().get(0).valuation());
-        assertEquals("s1", witness.prefix().get(1).state());
-        assertEquals(Set.of("b_pi1"), witness.prefix().get(1).valuation());
 
         assertEquals(1, witness.loop().size());
         assertEquals("s1", witness.loop().getFirst().state());

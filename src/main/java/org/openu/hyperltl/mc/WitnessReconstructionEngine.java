@@ -23,6 +23,8 @@ public final class WitnessReconstructionEngine {
             ProjectionResult projection = projectOneStep(step, currentLasso, originalSystem);
             reconstructed.add(projection.variableWitness());
             currentLasso = projection.previousAutomatonLasso();
+            // Complementation changes states; earlier product runs cannot be recovered.
+            if (step.complementedBeforeStep()) break;
         }
 
         reconstructed.sort(Comparator.comparing(TraceWitness::variable));
@@ -39,7 +41,10 @@ public final class WitnessReconstructionEngine {
         List<String> varLoopStates = new ArrayList<>();
 
         // Prefix states are observed states.
-        for (int state : lassoInAfterAutomaton.prefixStates()) {
+        List<Integer> prefix = lassoInAfterAutomaton.prefixStates();
+        // The extractor includes the loop entry in the prefix; emit it only in the loop.
+        for (int prefixIndex = 0; prefixIndex < Math.max(0, prefix.size() - 1); prefixIndex++) {
+            int state = prefix.get(prefixIndex);
             ProductStateComponents c = component(step, state);
             prevPrefix.add(c.leftState());
             varPrefixStates.add(systemState(step, c.rightState()));
@@ -68,8 +73,8 @@ public final class WitnessReconstructionEngine {
         List<Integer> previousLoopWithClosure = rebuildClosedLoop(prevLoop);
 
         AutomatonLasso previousLasso = new AutomatonLasso(
-                deduplicateConsecutive(prevPrefix),
-                deduplicateConsecutive(previousLoopWithClosure)
+                appendLoopEntry(prevPrefix, previousLoopWithClosure),
+                previousLoopWithClosure
         );
 
         return new ProjectionResult(previousLasso, witness);
@@ -121,19 +126,10 @@ public final class WitnessReconstructionEngine {
         return closed;
     }
 
-    private List<Integer> deduplicateConsecutive(List<Integer> states) {
-        if (states.isEmpty()) {
-            return states;
-        }
-        List<Integer> out = new ArrayList<>();
-        Integer prev = null;
-        for (Integer s : states) {
-            if (!Objects.equals(prev, s)) {
-                out.add(s);
-            }
-            prev = s;
-        }
-        return out;
+    private List<Integer> appendLoopEntry(List<Integer> prefix, List<Integer> loop) {
+        List<Integer> result = new ArrayList<>(prefix);
+        if (!loop.isEmpty()) result.add(loop.getFirst());
+        return result;
     }
 
     private record ProjectionResult(

@@ -32,3 +32,140 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+tasks.register('benchmarkApproximations', Test) {
+    group = 'verification'
+    description = 'Run the 288 approximation benchmarks against the saved exact baseline (requires Spot).'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform()
+    filter {
+        includeTestsMatching 'org.openu.hyperltl.mc.ApproximationBenchmarkComparisonTest'
+    }
+    systemProperty 'approximation.compare', 'true'
+    systemProperty 'junit.jupiter.execution.parallel.enabled', 'false'
+    maxParallelForks = 1
+    maxHeapSize = '4g'
+    outputs.upToDateWhen { false }
+    outputs.doNotCacheIf('Benchmarks must measure the current solver environment.') { true }
+}
+
+def validationSeed = providers.gradleProperty('validationSeed').orElse('20261012').map { value ->
+    try {
+        Long.parseLong(value).toString()
+    } catch (NumberFormatException invalidSeed) {
+        throw new GradleException('validationSeed must be a signed 64-bit decimal integer.', invalidSeed)
+    }
+}
+def validationTables = {
+    [
+        [name: 'Small exact / AutoHyper', path: 'autohyper-comparison/results.tsv', expected: 36, kind: 'exact'],
+        [name: 'Benchmark exact / AutoHyper', path: 'autohyper-benchmarks/results.tsv', expected: 144, kind: 'exact'],
+        [name: 'Approximation benchmarks', path: 'approximation-benchmarks/results.tsv', expected: 288, kind: 'approximation'],
+        [name: "Generated seed ${validationSeed.get()}", path: "generated-comparison/${validationSeed.get()}/results.tsv", expected: 64, kind: 'generated'],
+        [name: 'Counterexample semantics (seed 20261012)', path: 'counterexample-comparison/20261012/results.tsv', expected: 60, kind: 'counterexample']
+    ]
+}
+
+tasks.register('validateModelChecker', Test) {
+    group = 'verification'
+    description = 'Run AutoHyper, approximation, generated-case, and counterexample validation.'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform()
+    filter {
+        includeTestsMatching 'org.openu.hyperltl.mc.AutoHyperComparisonTest'
+        includeTestsMatching 'org.openu.hyperltl.mc.ApproximationBenchmarkComparisonTest'
+        includeTestsMatching 'org.openu.hyperltl.mc.GeneratedComparisonTest'
+        includeTestsMatching 'org.openu.hyperltl.mc.CounterexampleSemanticTest'
+    }
+    systemProperty 'autohyper.compare', 'true'
+    systemProperty 'approximation.compare', 'true'
+    systemProperty 'generated.compare', 'true'
+    systemProperty 'counterexample.compare', 'true'
+    systemProperty 'generated.seed', validationSeed.get()
+    systemProperty 'junit.jupiter.execution.parallel.enabled', 'false'
+    maxParallelForks = 1
+    outputs.upToDateWhen { false }
+    outputs.doNotCacheIf('Validation depends on local external solver installations.') { true }
+    doFirst {
+        // Clear only the output tables; preserve saved inputs and failure diagnostics.
+        validationTables().each { entry ->
+            def table = layout.buildDirectory.file(entry.path).get().asFile
+            if (table.exists() && !table.delete()) throw new GradleException("Cannot clear ${table}")
+        }
+        def xmlDirectory = reports.junitXml.outputLocation.get().asFile
+        if (xmlDirectory.exists()) {
+            xmlDirectory.listFiles().findAll { it.name.startsWith('TEST-') && it.name.endsWith('.xml') }.each {
+                if (!it.delete()) throw new GradleException("Cannot clear ${it}")
+            }
+        }
+        if (!file('AutoHyper/app/AutoHyper.exe').isFile()) {
+            throw new GradleException('Build AutoHyper/app/AutoHyper.exe and configure its paths.json before validation.')
+        }
+    }
+    finalizedBy 'summarizeModelCheckerValidation'
+}
+
+tasks.register('summarizeModelCheckerValidation') {
+    description = 'Write a combined summary of the latest external validation run.'
+    mustRunAfter 'validateModelChecker'
+    doLast {
+        def validation = tasks.named('validateModelChecker', Test).get()
+        def xmlDirectory = validation.reports.junitXml.outputLocation.get().asFile
+        def totals = [tests: 0, failures: 0, errors: 0, skipped: 0]
+        if (xmlDirectory.exists()) {
+            xmlDirectory.listFiles().findAll { it.name.startsWith('TEST-') && it.name.endsWith('.xml') }.each { xml ->
+                def document = javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xml)
+                totals.keySet().each { key -> totals[key] += document.documentElement.getAttribute(key).toInteger() }
+            }
+        }
+        def lines = ['# Model checker validation', '', "Generated seed: `${validationSeed.get()}`.", '',
+            "JUnit: ${totals.tests} tests, ${totals.failures} failures, ${totals.errors} errors, ${totals.skipped} skipped.", '',
+            '| Check | Cases / expected | Agrees or valid | Inconclusive | Failed |',
+            '| --- | ---: | ---: | ---: | ---: |']
+        boolean complete = validation.state.failure == null && totals.tests == 6 && totals.failures == 0 && totals.errors == 0 && totals.skipped == 0
+        validationTables().each { entry ->
+            def table = layout.buildDirectory.file(entry.path).get().asFile
+            def rows = table.exists() ? table.readLines('UTF-8').drop(1).findAll { !it.isBlank() }.collect { it.split('\t', -1) } : []
+            int agrees = 0, inconclusive = 0, failed = 0
+            rows.each { columns ->
+                boolean valid = false, uncertain = false
+                switch (entry.kind) {
+                    case 'exact':
+                        valid = columns.length == 4 && columns[2] in ['SAT', 'UNSAT'] && columns[2] == columns[3]
+                        break
+                    case 'approximation':
+                        valid = columns.length == 9 && columns[4] == 'AGREES'
+                        uncertain = columns.length == 9 && columns[4].startsWith('INCONCLUSIVE_')
+                        break
+                    case 'generated':
+                        if (columns.length == 9 && columns[5] in ['SAT', 'UNSAT'] && columns[5] == columns[6]) {
+                            valid = [columns[7], columns[8]].every { it == columns[6] }
+                            uncertain = !valid && [columns[7], columns[8]].every { it == columns[6] || it.startsWith('INCONCLUSIVE:') }
+                        }
+                        break
+                    case 'counterexample':
+                        valid = columns.length == 7 && columns[4] == 'VALID' && columns[5] == 'UNSAT'
+                        break
+                }
+                if (valid) agrees++
+                else if (uncertain) inconclusive++
+                else failed++
+            }
+            complete &= rows.size() == entry.expected && failed == 0
+            lines.add("| ${entry.name} | ${rows.size()} / ${entry.expected} | ${agrees} | ${inconclusive} | ${failed} |")
+        }
+        lines.addAll(['', complete ? 'Status: PASS (all suites completed; inconclusive outcomes are counted separately).' :
+                'Status: FAILED OR INCOMPLETE. Inspect the JUnit report and saved inputs/logs.', '',
+                'The JUnit results include the fixed-domain counterexample control.',
+                'Detailed tables and solver artifacts remain in their respective build directories.'])
+        def summary = layout.buildDirectory.file('reports/model-checker-validation/summary.md').get().asFile
+        summary.parentFile.mkdirs()
+        summary.setText(lines.join(System.lineSeparator()) + System.lineSeparator(), 'UTF-8')
+        logger.lifecycle("Model checker validation summary: ${summary}")
+        if (!complete && validation.state.failure == null) {
+            throw new GradleException("Validation results are incomplete or failed; see ${summary}")
+        }
+    }
+}

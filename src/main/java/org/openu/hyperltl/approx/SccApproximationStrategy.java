@@ -18,7 +18,10 @@ public final class SccApproximationStrategy implements ApproximationStrategy {
             // Over-approximation:
             // complete each SCC internally and complete transitions across SCC boundaries according
             // to the SCC condensation edges. This preserves all original behaviors and may add more.
-            approximation = buildOverApproximation(original, decomposition);
+            // Sources behind the refinement frontier use only original edges.
+            // Removing added edges preserves every original infinite path.
+            approximation = buildOverApproximation(original, decomposition,
+                    retainedFrontierDepth + refinementRound);
         } else {
             int allowedDepth = retainedFrontierDepth + refinementRound;
 
@@ -83,7 +86,8 @@ public final class SccApproximationStrategy implements ApproximationStrategy {
     }
 
     private static SystemModel buildOverApproximation(SystemModel original,
-                                                      SccDecomposition decomposition) {
+                                                      SccDecomposition decomposition,
+                                                      int exactFrontierDepth) {
         Map<Integer, Set<String>> sccToStates = decomposition.sccToStates();
         Map<Integer, Set<Integer>> sccDag = decomposition.sccDag();
 
@@ -93,12 +97,17 @@ public final class SccApproximationStrategy implements ApproximationStrategy {
             SystemModel.State originalState = original.states().get(stateName);
             int ownScc = decomposition.stateToScc().get(stateName);
 
-            // Complete transitions inside the SCC.
-            Set<String> targets = new LinkedHashSet<>(sccToStates.get(ownScc));
+            // Always retain original transitions. Unreachable SCCs need no relaxation.
+            Set<String> targets = new LinkedHashSet<>(originalState.transitions());
+            Integer depth = decomposition.distanceFromInitialScc().get(ownScc);
+            if (depth != null && depth >= exactFrontierDepth) {
+                // Complete only sources at or beyond the current refinement frontier.
+                targets.addAll(sccToStates.get(ownScc));
 
-            // Complete transitions to every state in each immediate successor SCC in the condensation graph.
-            for (Integer succScc : sccDag.getOrDefault(ownScc, Set.of())) {
-                targets.addAll(sccToStates.get(succScc));
+                // Complete transitions to every state in each immediate successor SCC.
+                for (Integer succScc : sccDag.getOrDefault(ownScc, Set.of())) {
+                    targets.addAll(sccToStates.get(succScc));
+                }
             }
 
             states.put(stateName, new SystemModel.State(originalState.labels(), targets));

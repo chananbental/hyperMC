@@ -8,15 +8,16 @@ import java.util.*;
 public final class ReachabilityApproximationStrategy implements ApproximationStrategy {
 
     private int underDepth = 1;
-    private int overDepthPadding = 1;
 
     private static SystemModel restrictToDepth(SystemModel original, int depth) {
         Set<String> keep = bfs(original, depth);
         return inducedSubgraph(original, keep);
     }
 
-    private static SystemModel relaxWithReachableClosure(SystemModel original, int depth) {
-        Set<String> keep = bfs(original, depth);
+    private static SystemModel relaxWithReachableClosure(SystemModel original) {
+        // All initial infinite paths stay in the reachable subgraph. A depth cut
+        // alone cannot over-approximate paths that leave the retained frontier.
+        Set<String> keep = bfs(original, Integer.MAX_VALUE);
         return inducedSubgraph(original, keep);
     }
 
@@ -49,9 +50,7 @@ public final class ReachabilityApproximationStrategy implements ApproximationStr
                     targets.add(t);
                 }
             }
-            if (targets.isEmpty()) {
-                targets.add(s);
-            }
+            // A cut frontier is a dead end, not an invented infinite stuttering path.
             states.put(s, new SystemModel.State(state.labels(), targets));
         }
         return new SystemModel(original.atomicPropositions(), original.initialState(), states);
@@ -61,13 +60,12 @@ public final class ReachabilityApproximationStrategy implements ApproximationStr
     public SystemModel approximate(SystemModel original, ApproximationType approximationType, int refinementRound) {
         return approximationType.equals(ApproximationType.UNDER) ?
                 restrictToDepth(original, Math.max(1, underDepth + refinementRound)) :
-                relaxWithReachableClosure(original, Math.max(1, underDepth + overDepthPadding + refinementRound));
+                relaxWithReachableClosure(original);
     }
 
     @Override
     public ApproximationStrategy refine(List<TraceWitness> fakeWitnesses) {
         this.underDepth += 1;
-        this.overDepthPadding += 1;
         return this;
     }
 

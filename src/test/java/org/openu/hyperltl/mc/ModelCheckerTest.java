@@ -25,7 +25,7 @@ import static org.openu.hyperltl.cases.formulas.TestFormulas.formulas;
 import static org.openu.hyperltl.cases.systems.TestSystems.systems;
 import static org.openu.hyperltl.utils.Timer.runAndTime;
 
-@Disabled("activate when running beckmark")
+// @Disabled("activate when running beckmark")
 public class ModelCheckerTest {
 
     SpotAutomatonUtil spot = new SpotAutomatonUtil();

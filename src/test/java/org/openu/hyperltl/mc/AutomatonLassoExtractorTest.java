@@ -13,6 +13,17 @@ import static org.junit.jupiter.api.Assertions.*;
 class AutomatonLassoExtractorTest {
 
     @Test
+    void searchesPastAnAcceptingStateWithoutACycle() {
+        NBA nba = new NBA(List.of(), Set.of(0), Map.of(
+                0, List.of(new NBA.Transition(0, 1, new BoolConst(true))),
+                1, List.of(new NBA.Transition(1, 2, new BoolConst(true))),
+                2, List.of(new NBA.Transition(2, 2, new BoolConst(true)))), Set.of(1, 2), 3);
+        var lasso = new AutomatonLassoExtractor().extract(nba).orElseThrow();
+        assertEquals(List.of(0, 1, 2), lasso.prefixStates());
+        assertEquals(List.of(2, 2), lasso.loopStates());
+    }
+
+    @Test
     void extractsAcceptingLasso() {
         NBA nba = new NBA(
                 List.of("a"),

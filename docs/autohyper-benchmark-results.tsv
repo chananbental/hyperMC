@@ -1,0 +1,145 @@
+system	formula	AutoHyper	hyperMC
+system-1	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	SAT	SAT
+system-1	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	SAT
+system-1	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	SAT
+system-1	exists pi1. exists pi2. F((a_pi1 & b_pi2))	UNSAT	UNSAT
+system-1	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	UNSAT	UNSAT
+system-1	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	UNSAT	UNSAT
+system-1	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-1	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	SAT
+system-1	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	UNSAT	UNSAT
+system-1	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	SAT
+system-1	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-1	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	SAT
+system-1	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	SAT
+system-1	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-1	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	SAT
+system-1	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-1	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-1	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	SAT
+system-1	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	SAT
+system-1	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-1	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	SAT
+system-1	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-1	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	SAT
+system-1	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	SAT
+system-2	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	SAT	SAT
+system-2	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	SAT
+system-2	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	SAT
+system-2	exists pi1. exists pi2. F((a_pi1 & b_pi2))	SAT	SAT
+system-2	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	SAT	SAT
+system-2	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	SAT	SAT
+system-2	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-2	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	SAT
+system-2	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	SAT	SAT
+system-2	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	SAT
+system-2	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-2	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	SAT
+system-2	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	SAT
+system-2	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-2	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	SAT
+system-2	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-2	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-2	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	SAT
+system-2	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	SAT
+system-2	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-2	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	SAT
+system-2	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-2	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	SAT
+system-2	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	SAT
+system-3	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	UNSAT	UNSAT
+system-3	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	SAT
+system-3	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	SAT
+system-3	exists pi1. exists pi2. F((a_pi1 & b_pi2))	SAT	SAT
+system-3	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	SAT	SAT
+system-3	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	SAT	SAT
+system-3	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-3	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	SAT
+system-3	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	SAT	SAT
+system-3	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	SAT
+system-3	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-3	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	SAT
+system-3	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	SAT
+system-3	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-3	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	SAT
+system-3	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-3	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-3	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	SAT
+system-3	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	SAT
+system-3	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-3	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	SAT
+system-3	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-3	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	SAT
+system-3	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	SAT
+system-4	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	SAT	SAT
+system-4	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	SAT
+system-4	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	SAT
+system-4	exists pi1. exists pi2. F((a_pi1 & b_pi2))	SAT	SAT
+system-4	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	SAT	SAT
+system-4	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	SAT	SAT
+system-4	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-4	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	SAT
+system-4	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	SAT	SAT
+system-4	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	SAT
+system-4	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-4	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	SAT
+system-4	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	SAT
+system-4	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-4	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	SAT
+system-4	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-4	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-4	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	SAT
+system-4	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	SAT
+system-4	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-4	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	SAT
+system-4	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-4	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	SAT
+system-4	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	SAT
+system-5	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	UNSAT	UNSAT
+system-5	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	SAT
+system-5	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	SAT
+system-5	exists pi1. exists pi2. F((a_pi1 & b_pi2))	SAT	SAT
+system-5	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	SAT	SAT
+system-5	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	SAT	SAT
+system-5	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-5	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	SAT
+system-5	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	SAT	SAT
+system-5	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	SAT
+system-5	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-5	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	SAT
+system-5	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	SAT
+system-5	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-5	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	SAT
+system-5	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-5	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-5	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	SAT
+system-5	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	SAT
+system-5	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-5	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	SAT
+system-5	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-5	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	SAT
+system-5	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	SAT
+system-6	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	SAT	SAT
+system-6	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	SAT
+system-6	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	SAT
+system-6	exists pi1. exists pi2. F((a_pi1 & b_pi2))	SAT	SAT
+system-6	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	SAT	SAT
+system-6	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	SAT	SAT
+system-6	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-6	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	SAT
+system-6	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	SAT	SAT
+system-6	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	SAT
+system-6	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-6	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	SAT
+system-6	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	SAT
+system-6	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-6	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	SAT
+system-6	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-6	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	SAT
+system-6	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	SAT
+system-6	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	SAT
+system-6	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-6	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	SAT
+system-6	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	SAT
+system-6	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	SAT
+system-6	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	SAT

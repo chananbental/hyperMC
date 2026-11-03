@@ -84,6 +84,7 @@ public class SpotAutomatonUtil {
         List<String> fullCommand = new ArrayList<>();
         if (os.equals(OperatingSystemEnum.WINDOWS)) {
             fullCommand.add("wsl");
+            fullCommand.add("--exec");
         }
         fullCommand.addAll(command);
 

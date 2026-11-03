@@ -75,7 +75,12 @@ class HyperLTLModelCheckerTest {
         NBA nba = new NBA(List.of("a_pi1"), Set.of(0),
                 Map.of(0, List.of(new NBA.Transition(0, 0, new BoolConst(true)))), Set.of(0), 1);
         HyperLTLModelChecker checker = new HyperLTLModelChecker(
-                new FakeSpotAutomatonUtil(nba, false),
+                new FakeSpotAutomatonUtil(nba, false) {
+                    @Override
+                    public boolean isEmpty(NBA automaton) {
+                        return new AutomatonLassoExtractor().extract(automaton).isEmpty();
+                    }
+                },
                 new ApproximationCoordinator(new ExactApproximationStrategy(), strategy));
         IllegalStateException failure = assertThrows(IllegalStateException.class,
                 () -> checker.check(original, new HyperLTLParser().parse("forall pi1. G(a_pi1)")));

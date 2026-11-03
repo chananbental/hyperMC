@@ -1,0 +1,65 @@
+seed	case	states	prefix	formula	AutoHyper	exact	scc	reachability
+20261012	case-01	1	AA	forall p. forall q. X(!a_p <-> !b_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-02	1	EE	exists p. exists q. (!a_p) U (!b_q)	SAT	SAT	SAT	SAT
+20261012	case-03	1	AE	forall p. exists q. G F(a_p & !b_q)	SAT	SAT	SAT	SAT
+20261012	case-04	1	EA	exists p. forall q. G(!a_p -> F(!b_q))	SAT	SAT	SAT	SAT
+20261012	case-05	1	AEA	forall p. exists q. forall r. (F G(!a_p <-> !b_r)) & X(!b_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-06	1	EAE	exists p. forall q. exists r. (X((!a_p) U (!b_r))) & G F(a_q)	SAT	SAT	SAT	SAT
+20261012	case-07	1	AEAE	forall p. exists q. forall r. exists s. ((G F(a_p <-> !b_s)) & G F(a_q)) & X(a_r)	SAT	SAT	SAT	SAT
+20261012	case-08	1	EAEA	exists p. forall q. exists r. forall s. ((G(a_p <-> !a_s)) & G F(a_q)) & G F(a_r)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-09	1	AA	forall p. forall q. (a_p) U (b_q)	SAT	SAT	SAT	SAT
+20261012	case-10	1	EE	exists p. exists q. G F(!a_p & !b_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-11	1	AE	forall p. exists q. G(!a_p -> F(!b_q))	SAT	SAT	SAT	SAT
+20261012	case-12	1	EA	exists p. forall q. F G(a_p <-> b_q)	SAT	SAT	SAT	SAT
+20261012	case-13	1	AEA	forall p. exists q. forall r. (X((!a_p) U (b_r))) & X(a_q)	SAT	SAT	SAT	SAT
+20261012	case-14	1	EAE	exists p. forall q. exists r. (G F(a_p <-> !b_r)) & G F(a_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-15	1	AEAE	forall p. exists q. forall r. exists s. ((G(a_p <-> !a_s)) & G F(a_q)) & G F(!b_r)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-16	1	EAEA	exists p. forall q. exists r. forall s. ((X(!a_p <-> b_s)) & G F(a_q)) & X(!b_r)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-17	2	AA	forall p. forall q. G F(!a_p & b_q)	SAT	SAT	SAT	SAT
+20261012	case-18	2	EE	exists p. exists q. G(!a_p -> F(!b_q))	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-19	2	AE	forall p. exists q. F G(!a_p <-> b_q)	SAT	SAT	SAT	SAT
+20261012	case-20	2	EA	exists p. forall q. X((!a_p) U (!b_q))	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-21	2	AEA	forall p. exists q. forall r. (G F(!a_p <-> b_r)) & X(a_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-22	2	EAE	exists p. forall q. exists r. (G(a_p <-> !a_r)) & X(a_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-23	2	AEAE	forall p. exists q. forall r. exists s. ((X(a_p <-> !b_s)) & X(!b_q)) & G F(!b_r)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-24	2	EAEA	exists p. forall q. exists r. forall s. (((!a_p) U (b_s)) & G F(a_q)) & G F(a_r)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-25	2	AA	forall p. forall q. G(!a_p -> F(!b_q))	SAT	SAT	SAT	SAT
+20261012	case-26	2	EE	exists p. exists q. F G(a_p <-> !b_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-27	2	AE	forall p. exists q. X((!a_p) U (b_q))	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-28	2	EA	exists p. forall q. G F(a_p <-> !b_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-29	2	AEA	forall p. exists q. forall r. (G(a_p <-> !a_r)) & G F(a_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-30	2	EAE	exists p. forall q. exists r. (X(a_p <-> b_r)) & X(a_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-31	2	AEAE	forall p. exists q. forall r. exists s. (((a_p) U (!b_s)) & X(a_q)) & X(a_r)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-32	2	EAEA	exists p. forall q. exists r. forall s. ((G F(!a_p & !b_s)) & X(a_q)) & X(!b_r)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-33	3	AA	forall p. forall q. F G(a_p <-> !b_q)	SAT	SAT	SAT	SAT
+20261012	case-34	3	EE	exists p. exists q. X((a_p) U (!b_q))	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-35	3	AE	forall p. exists q. G F(a_p <-> b_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-36	3	EA	exists p. forall q. G(a_p <-> !a_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-37	3	AEA	forall p. exists q. forall r. (X(!a_p <-> b_r)) & G F(a_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-38	3	EAE	exists p. forall q. exists r. ((a_p) U (!b_r)) & X(a_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-39	3	AEAE	forall p. exists q. forall r. exists s. ((G F(!a_p & !b_s)) & X(!b_q)) & G F(!b_r)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-40	3	EAEA	exists p. forall q. exists r. forall s. ((G(a_p -> F(b_s))) & G F(a_q)) & X(a_r)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-41	3	AA	forall p. forall q. X((!a_p) U (b_q))	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-42	3	EE	exists p. exists q. G F(!a_p <-> !b_q)	SAT	SAT	SAT	SAT
+20261012	case-43	3	AE	forall p. exists q. G(a_p <-> !a_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-44	3	EA	exists p. forall q. X(a_p <-> !b_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-45	3	AEA	forall p. exists q. forall r. ((a_p) U (!b_r)) & X(!b_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-46	3	EAE	exists p. forall q. exists r. (G F(!a_p & b_r)) & X(a_q)	SAT	SAT	SAT	SAT
+20261012	case-47	3	AEAE	forall p. exists q. forall r. exists s. ((G(a_p -> F(!b_s))) & G F(a_q)) & X(a_r)	SAT	SAT	SAT	SAT
+20261012	case-48	3	EAEA	exists p. forall q. exists r. forall s. ((F G(!a_p <-> b_s)) & G F(!b_q)) & G F(!b_r)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-49	4	AA	forall p. forall q. G F(!a_p <-> !b_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-50	4	EE	exists p. exists q. G(a_p <-> !a_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-51	4	AE	forall p. exists q. X(a_p <-> !b_q)	SAT	SAT	SAT	SAT
+20261012	case-52	4	EA	exists p. forall q. (a_p) U (b_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-53	4	AEA	forall p. exists q. forall r. (G F(!a_p & b_r)) & G F(a_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-54	4	EAE	exists p. forall q. exists r. (G(!a_p -> F(!b_r))) & G F(a_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-55	4	AEAE	forall p. exists q. forall r. exists s. ((F G(a_p <-> !b_s)) & G F(a_q)) & X(!b_r)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-56	4	EAEA	exists p. forall q. exists r. forall s. ((X((!a_p) U (!b_s))) & X(a_q)) & G F(a_r)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-57	4	AA	forall p. forall q. G(a_p <-> !a_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-58	4	EE	exists p. exists q. X(a_p <-> b_q)	SAT	SAT	SAT	SAT
+20261012	case-59	4	AE	forall p. exists q. (a_p) U (b_q)	SAT	SAT	SAT	SAT
+20261012	case-60	4	EA	exists p. forall q. G F(!a_p & !b_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-61	4	AEA	forall p. exists q. forall r. (G(a_p -> F(!b_r))) & X(!b_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-62	4	EAE	exists p. forall q. exists r. (F G(!a_p <-> !b_r)) & G F(!b_q)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-63	4	AEAE	forall p. exists q. forall r. exists s. ((X((!a_p) U (!b_s))) & G F(!b_q)) & X(!b_r)	UNSAT	UNSAT	UNSAT	UNSAT
+20261012	case-64	4	EAEA	exists p. forall q. exists r. forall s. ((G F(!a_p <-> b_s)) & X(a_q)) & G F(a_r)	UNSAT	UNSAT	UNSAT	UNSAT

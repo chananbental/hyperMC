@@ -1,0 +1,289 @@
+strategy	system	formula	exact	status	verdict	refinementRound	elapsedMs	detail
+reachability	system-1	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	SAT	AGREES	SAT	0	4352	
+reachability	system-1	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	AGREES	SAT	0	709	
+reachability	system-1	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	AGREES	SAT	0	469	
+reachability	system-1	exists pi1. exists pi2. F((a_pi1 & b_pi2))	UNSAT	AGREES	UNSAT	0	456	
+reachability	system-1	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	UNSAT	AGREES	UNSAT	0	388	
+reachability	system-1	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	UNSAT	AGREES	UNSAT	0	399	
+reachability	system-1	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	563	
+reachability	system-1	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	0	617	
+reachability	system-1	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	UNSAT	AGREES	UNSAT	0	552	
+reachability	system-1	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	AGREES	SAT	0	601	
+reachability	system-1	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	589	
+reachability	system-1	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	AGREES	SAT	0	586	
+reachability	system-1	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	0	774	
+reachability	system-1	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	0	793	
+reachability	system-1	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	AGREES	SAT	0	765	
+reachability	system-1	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	0	773	
+reachability	system-1	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	0	780	
+reachability	system-1	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	0	756	
+reachability	system-1	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	0	988	
+reachability	system-1	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	966	
+reachability	system-1	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	AGREES	SAT	0	970	
+reachability	system-1	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	985	
+reachability	system-1	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	AGREES	SAT	0	976	
+reachability	system-1	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	0	979	
+reachability	system-2	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	SAT	AGREES	SAT	0	427	
+reachability	system-2	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	AGREES	SAT	0	383	
+reachability	system-2	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	AGREES	SAT	0	365	
+reachability	system-2	exists pi1. exists pi2. F((a_pi1 & b_pi2))	SAT	AGREES	SAT	0	383	
+reachability	system-2	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	0	430	
+reachability	system-2	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	SAT	AGREES	SAT	0	398	
+reachability	system-2	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	597	
+reachability	system-2	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	0	584	
+reachability	system-2	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	SAT	AGREES	SAT	0	597	
+reachability	system-2	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	AGREES	SAT	0	601	
+reachability	system-2	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	580	
+reachability	system-2	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	AGREES	SAT	0	598	
+reachability	system-2	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	0	767	
+reachability	system-2	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	0	766	
+reachability	system-2	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	AGREES	SAT	0	763	
+reachability	system-2	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	0	753	
+reachability	system-2	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	0	788	
+reachability	system-2	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	0	798	
+reachability	system-2	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	0	945	
+reachability	system-2	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	970	
+reachability	system-2	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	AGREES	SAT	0	958	
+reachability	system-2	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	964	
+reachability	system-2	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	AGREES	SAT	0	972	
+reachability	system-2	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	0	1043	
+reachability	system-3	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	UNSAT	AGREES	UNSAT	0	402	
+reachability	system-3	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	AGREES	SAT	0	373	
+reachability	system-3	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	AGREES	SAT	0	412	
+reachability	system-3	exists pi1. exists pi2. F((a_pi1 & b_pi2))	SAT	AGREES	SAT	0	415	
+reachability	system-3	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	0	374	
+reachability	system-3	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	SAT	AGREES	SAT	0	366	
+reachability	system-3	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	587	
+reachability	system-3	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	0	568	
+reachability	system-3	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	SAT	AGREES	SAT	0	569	
+reachability	system-3	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	AGREES	SAT	0	572	
+reachability	system-3	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	559	
+reachability	system-3	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	AGREES	SAT	0	611	
+reachability	system-3	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	0	801	
+reachability	system-3	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	0	775	
+reachability	system-3	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	AGREES	SAT	0	856	
+reachability	system-3	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	0	789	
+reachability	system-3	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	0	940	
+reachability	system-3	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	0	864	
+reachability	system-3	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	0	1092	
+reachability	system-3	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	1067	
+reachability	system-3	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	AGREES	SAT	0	1244	
+reachability	system-3	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	1050	
+reachability	system-3	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	AGREES	SAT	0	1208	
+reachability	system-3	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	0	1317	
+reachability	system-4	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	SAT	AGREES	SAT	0	476	
+reachability	system-4	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	AGREES	SAT	0	414	
+reachability	system-4	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	AGREES	SAT	0	426	
+reachability	system-4	exists pi1. exists pi2. F((a_pi1 & b_pi2))	SAT	AGREES	SAT	1	787	
+reachability	system-4	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	1	820	
+reachability	system-4	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	SAT	AGREES	SAT	1	826	
+reachability	system-4	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	1390	
+reachability	system-4	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	1	1345	
+reachability	system-4	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	SAT	AGREES	SAT	1	1427	
+reachability	system-4	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	AGREES	SAT	1	1420	
+reachability	system-4	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	1608	
+reachability	system-4	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	AGREES	SAT	1	1405	
+reachability	system-4	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	1	2042	
+reachability	system-4	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	2561	
+reachability	system-4	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	AGREES	SAT	1	2506	
+reachability	system-4	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	2498	
+reachability	system-4	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	2349	
+reachability	system-4	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	1	2342	
+reachability	system-4	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	1	3165	
+reachability	system-4	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	2581	
+reachability	system-4	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	AGREES	SAT	1	2571	
+reachability	system-4	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	2671	
+reachability	system-4	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	AGREES	SAT	1	2580	
+reachability	system-4	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	1	2542	
+reachability	system-5	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	UNSAT	AGREES	UNSAT	1	781	
+reachability	system-5	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	AGREES	SAT	0	399	
+reachability	system-5	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	AGREES	SAT	0	382	
+reachability	system-5	exists pi1. exists pi2. F((a_pi1 & b_pi2))	SAT	AGREES	SAT	1	796	
+reachability	system-5	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	1	769	
+reachability	system-5	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	SAT	AGREES	SAT	1	888	
+reachability	system-5	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	1442	
+reachability	system-5	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	1	1345	
+reachability	system-5	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	SAT	AGREES	SAT	1	1365	
+reachability	system-5	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	AGREES	SAT	1	1385	
+reachability	system-5	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	1448	
+reachability	system-5	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	AGREES	SAT	1	1389	
+reachability	system-5	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	1	2095	
+reachability	system-5	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	2070	
+reachability	system-5	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	AGREES	SAT	1	2032	
+reachability	system-5	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	1985	
+reachability	system-5	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	1980	
+reachability	system-5	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	1	1976	
+reachability	system-5	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	1	2646	
+reachability	system-5	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	2623	
+reachability	system-5	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	AGREES	SAT	1	2807	
+reachability	system-5	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	3132	
+reachability	system-5	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	AGREES	SAT	1	3221	
+reachability	system-5	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	1	3072	
+reachability	system-6	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	SAT	AGREES	SAT	0	446	
+reachability	system-6	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	AGREES	SAT	0	401	
+reachability	system-6	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	AGREES	SAT	0	387	
+reachability	system-6	exists pi1. exists pi2. F((a_pi1 & b_pi2))	SAT	AGREES	SAT	1	780	
+reachability	system-6	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	1	793	
+reachability	system-6	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	SAT	AGREES	SAT	1	869	
+reachability	system-6	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	1394	
+reachability	system-6	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	1	1367	
+reachability	system-6	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	SAT	AGREES	SAT	1	1383	
+reachability	system-6	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	AGREES	SAT	1	1507	
+reachability	system-6	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	1375	
+reachability	system-6	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	AGREES	SAT	1	1364	
+reachability	system-6	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	1	1962	
+reachability	system-6	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	1957	
+reachability	system-6	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	AGREES	SAT	1	2169	
+reachability	system-6	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	2388	
+reachability	system-6	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	2212	
+reachability	system-6	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	1	2364	
+reachability	system-6	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	1	2886	
+reachability	system-6	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	3065	
+reachability	system-6	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	AGREES	SAT	1	2530	
+reachability	system-6	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	2614	
+reachability	system-6	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	AGREES	SAT	1	2531	
+reachability	system-6	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	1	2611	
+scc	system-1	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	SAT	AGREES	SAT	0	412	
+scc	system-1	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	AGREES	SAT	0	394	
+scc	system-1	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	AGREES	SAT	0	374	
+scc	system-1	exists pi1. exists pi2. F((a_pi1 & b_pi2))	UNSAT	AGREES	UNSAT	0	373	
+scc	system-1	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	UNSAT	AGREES	UNSAT	0	398	
+scc	system-1	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	UNSAT	AGREES	UNSAT	0	422	
+scc	system-1	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	601	
+scc	system-1	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	0	609	
+scc	system-1	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	UNSAT	AGREES	UNSAT	0	631	
+scc	system-1	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	AGREES	SAT	0	682	
+scc	system-1	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	772	
+scc	system-1	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	AGREES	SAT	0	808	
+scc	system-1	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	0	1039	
+scc	system-1	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	0	926	
+scc	system-1	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	AGREES	SAT	0	952	
+scc	system-1	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	0	886	
+scc	system-1	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	0	1040	
+scc	system-1	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	0	847	
+scc	system-1	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	0	1197	
+scc	system-1	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	1027	
+scc	system-1	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	AGREES	SAT	0	1005	
+scc	system-1	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	0	1018	
+scc	system-1	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	AGREES	SAT	0	1060	
+scc	system-1	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	0	978	
+scc	system-2	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	SAT	AGREES	SAT	1	829	
+scc	system-2	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	AGREES	SAT	1	813	
+scc	system-2	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	AGREES	SAT	0	410	
+scc	system-2	exists pi1. exists pi2. F((a_pi1 & b_pi2))	SAT	AGREES	SAT	1	837	
+scc	system-2	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	1	814	
+scc	system-2	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	SAT	AGREES	SAT	1	792	
+scc	system-2	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	1344	
+scc	system-2	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	1	1361	
+scc	system-2	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	SAT	AGREES	SAT	1	1575	
+scc	system-2	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	AGREES	SAT	1	1330	
+scc	system-2	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	1406	
+scc	system-2	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	AGREES	SAT	1	1374	
+scc	system-2	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	1	2007	
+scc	system-2	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	2116	
+scc	system-2	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	AGREES	SAT	1	2084	
+scc	system-2	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	2074	
+scc	system-2	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	2004	
+scc	system-2	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	1	2020	
+scc	system-2	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	1	2577	
+scc	system-2	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	2585	
+scc	system-2	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	AGREES	SAT	1	2611	
+scc	system-2	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	2649	
+scc	system-2	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	AGREES	SAT	1	2538	
+scc	system-2	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	1	2637	
+scc	system-3	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	UNSAT	AGREES	UNSAT	1	814	
+scc	system-3	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	AGREES	SAT	0	408	
+scc	system-3	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	AGREES	SAT	0	378	
+scc	system-3	exists pi1. exists pi2. F((a_pi1 & b_pi2))	SAT	AGREES	SAT	1	885	
+scc	system-3	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	1	948	
+scc	system-3	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	SAT	AGREES	SAT	1	987	
+scc	system-3	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	1570	
+scc	system-3	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	1	1579	
+scc	system-3	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	SAT	AGREES	SAT	1	1761	
+scc	system-3	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	AGREES	SAT	1	1649	
+scc	system-3	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	1619	
+scc	system-3	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	AGREES	SAT	1	1710	
+scc	system-3	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	1	2111	
+scc	system-3	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	2019	
+scc	system-3	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	AGREES	SAT	1	1951	
+scc	system-3	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	1939	
+scc	system-3	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	2043	
+scc	system-3	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	1	2042	
+scc	system-3	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	1	2999	
+scc	system-3	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	2561	
+scc	system-3	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	AGREES	SAT	1	2635	
+scc	system-3	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	2584	
+scc	system-3	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	AGREES	SAT	1	2602	
+scc	system-3	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	1	2544	
+scc	system-4	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	SAT	AGREES	SAT	1	784	
+scc	system-4	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	AGREES	SAT	1	798	
+scc	system-4	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	AGREES	SAT	0	397	
+scc	system-4	exists pi1. exists pi2. F((a_pi1 & b_pi2))	SAT	AGREES	SAT	1	836	
+scc	system-4	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	1	936	
+scc	system-4	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	SAT	AGREES	SAT	1	860	
+scc	system-4	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	1488	
+scc	system-4	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	1	1557	
+scc	system-4	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	SAT	AGREES	SAT	1	1416	
+scc	system-4	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	AGREES	SAT	1	1334	
+scc	system-4	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	1594	
+scc	system-4	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	AGREES	SAT	1	1483	
+scc	system-4	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	1	1948	
+scc	system-4	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	2109	
+scc	system-4	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	AGREES	SAT	1	2056	
+scc	system-4	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	1950	
+scc	system-4	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	1988	
+scc	system-4	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	1	2094	
+scc	system-4	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	1	2509	
+scc	system-4	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	2794	
+scc	system-4	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	AGREES	SAT	1	2700	
+scc	system-4	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	2663	
+scc	system-4	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	AGREES	SAT	1	2693	
+scc	system-4	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	1	2676	
+scc	system-5	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	UNSAT	AGREES	UNSAT	1	782	
+scc	system-5	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	AGREES	SAT	0	378	
+scc	system-5	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	AGREES	SAT	0	462	
+scc	system-5	exists pi1. exists pi2. F((a_pi1 & b_pi2))	SAT	AGREES	SAT	1	848	
+scc	system-5	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	1	873	
+scc	system-5	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	SAT	AGREES	SAT	1	858	
+scc	system-5	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	1642	
+scc	system-5	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	1	1750	
+scc	system-5	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	SAT	AGREES	SAT	1	1738	
+scc	system-5	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	AGREES	SAT	1	1646	
+scc	system-5	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	1756	
+scc	system-5	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	AGREES	SAT	1	1744	
+scc	system-5	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	1	2380	
+scc	system-5	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	2352	
+scc	system-5	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	AGREES	SAT	1	2012	
+scc	system-5	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	2102	
+scc	system-5	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	1	2014	
+scc	system-5	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	1	1990	
+scc	system-5	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	1	2558	
+scc	system-5	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	2530	
+scc	system-5	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	AGREES	SAT	1	2644	
+scc	system-5	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	1	2556	
+scc	system-5	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	AGREES	SAT	1	2578	
+scc	system-5	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	1	2774	
+scc	system-6	forall pi1. forall pi2. G((a_pi1 -> F(a_pi2)))	SAT	AGREES	SAT	2	1396	
+scc	system-6	forall pi1. forall pi2. G(((a_pi1 & b_pi1) -> F(c_pi2)))	SAT	AGREES	SAT	1	941	
+scc	system-6	forall pi1. forall pi2. G((a_pi1 -> X((a_pi2 | !(a_pi2)))))	SAT	AGREES	SAT	0	476	
+scc	system-6	exists pi1. exists pi2. F((a_pi1 & b_pi2))	SAT	AGREES	SAT	2	1172	
+scc	system-6	exists pi1. exists pi2. G((a_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	2	1286	
+scc	system-6	exists pi1. exists pi2. (F(a_pi1) & F(b_pi2))	SAT	AGREES	SAT	2	1422	
+scc	system-6	forall pi1. forall pi2. exists pi3. (G((a_pi1 -> F(a_pi3))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	2	2783	
+scc	system-6	forall pi1. exists pi2. G((b_pi1 -> F(c_pi2)))	SAT	AGREES	SAT	2	4164	
+scc	system-6	forall pi1. exists pi2. exists pi3. G((a_pi1 -> (F(b_pi2) | F(c_pi3))))	SAT	AGREES	SAT	2	2309	
+scc	system-6	exists pi1. forall pi2. G((a_pi2 -> F(a_pi1)))	SAT	AGREES	SAT	2	2224	
+scc	system-6	exists pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi1))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	2	2318	
+scc	system-6	exists pi1. forall pi2. forall pi3. G(((a_pi2 & b_pi3) -> F(c_pi1)))	SAT	AGREES	SAT	2	2268	
+scc	system-6	forall pi1. exists pi2. forall pi3. (G((a_pi1 -> F(a_pi2))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	2	3091	
+scc	system-6	forall pi1. exists pi2. forall pi3. (G((b_pi3 -> F(c_pi2))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	2	3243	
+scc	system-6	forall pi1. exists pi2. forall pi3. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi2))))	SAT	AGREES	SAT	2	3101	
+scc	system-6	exists pi1. forall pi2. exists pi3. (G((a_pi2 -> F(a_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	2	3059	
+scc	system-6	exists pi1. forall pi2. exists pi3. (G((b_pi2 -> F(c_pi3))) & G((a_pi1 | !(a_pi1))))	SAT	AGREES	SAT	2	3145	
+scc	system-6	exists pi1. forall pi2. exists pi3. G(((a_pi2 & b_pi2) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	2	3190	
+scc	system-6	forall pi1. exists pi2. forall pi3. exists pi4. ((G((a_pi1 -> F(a_pi4))) & G((a_pi2 | !(a_pi2)))) & G((a_pi3 | !(a_pi3))))	SAT	AGREES	SAT	2	4305	
+scc	system-6	forall pi1. exists pi2. forall pi3. exists pi4. ((G((b_pi3 -> F(c_pi4))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	2	4540	
+scc	system-6	forall pi1. exists pi2. forall pi3. exists pi4. G(((a_pi1 & b_pi3) -> F((a_pi2 | c_pi4))))	SAT	AGREES	SAT	2	4867	
+scc	system-6	exists pi1. forall pi2. exists pi3. forall pi4. ((G((a_pi4 -> F(a_pi3))) & G((a_pi1 | !(a_pi1)))) & G((a_pi2 | !(a_pi2))))	SAT	AGREES	SAT	2	4897	
+scc	system-6	exists pi1. forall pi2. exists pi3. forall pi4. ((G((b_pi2 -> F(c_pi1))) & G((a_pi3 | !(a_pi3)))) & G((a_pi4 | !(a_pi4))))	SAT	AGREES	SAT	2	4702	
+scc	system-6	exists pi1. forall pi2. exists pi3. forall pi4. G(((a_pi2 & b_pi4) -> F((a_pi1 | c_pi3))))	SAT	AGREES	SAT	2	5113	

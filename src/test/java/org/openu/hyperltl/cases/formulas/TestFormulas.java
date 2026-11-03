@@ -7,6 +7,9 @@ import java.util.List;
 
 public class TestFormulas extends MetaFormulaSuit {
 
+    // AutoHyper preprocessing requires each quantified trace to appear in the body.
+    // G(a_pi | !a_pi) clauses expose otherwise unused traces without changing truth.
+
     public static TestFormulas formulas = new TestFormulas();
     private static final HyperLTLParser parser = new HyperLTLParser();
     List<FormulaSuit> formulaSuits = List.of(new NoAlternation(), new OneAlternation(), new TwoAlternation(), new ThreeAlternation());
@@ -54,7 +57,7 @@ public class TestFormulas extends MetaFormulaSuit {
         }
 
         public static class AE implements FormulaSuit {
-            public final HyperLTLFormula firstFormula = parser.parse("forall pi1. forall pi2. exists pi3. G(a_pi1 -> F a_pi3)");
+            public final HyperLTLFormula firstFormula = parser.parse("forall pi1. forall pi2. exists pi3. (G(a_pi1 -> F a_pi3)) & G(a_pi2 | !a_pi2)");
             public final HyperLTLFormula secondFormula = parser.parse("forall pi1. exists pi2. G(b_pi1 -> F c_pi2)");
             public final HyperLTLFormula thirdFormula = parser.parse("forall pi1. exists pi2. exists pi3. G(a_pi1 -> (F b_pi2 | F c_pi3))");
 
@@ -66,7 +69,7 @@ public class TestFormulas extends MetaFormulaSuit {
 
         public static class EA implements FormulaSuit {
             public final HyperLTLFormula firstFormula = parser.parse("exists pi1. forall pi2. G(a_pi2 -> F a_pi1)");
-            public final HyperLTLFormula secondFormula = parser.parse("exists pi1. exists pi2. forall pi3. G(b_pi3 -> F c_pi1)");
+            public final HyperLTLFormula secondFormula = parser.parse("exists pi1. exists pi2. forall pi3. (G(b_pi3 -> F c_pi1)) & G(a_pi2 | !a_pi2)");
             public final HyperLTLFormula thirdFormula = parser.parse("exists pi1. forall pi2. forall pi3. G((a_pi2 & b_pi3) -> F c_pi1)");
 
             @Override
@@ -84,8 +87,8 @@ public class TestFormulas extends MetaFormulaSuit {
         }
 
         public static class AEA implements FormulaSuit {
-            public final HyperLTLFormula firstFormula = parser.parse("forall pi1. exists pi2. forall pi3. G(a_pi1 -> F a_pi2)");
-            public final HyperLTLFormula secondFormula = parser.parse("forall pi1. exists pi2. forall pi3. G(b_pi3 -> F c_pi2)");
+            public final HyperLTLFormula firstFormula = parser.parse("forall pi1. exists pi2. forall pi3. (G(a_pi1 -> F a_pi2)) & G(a_pi3 | !a_pi3)");
+            public final HyperLTLFormula secondFormula = parser.parse("forall pi1. exists pi2. forall pi3. (G(b_pi3 -> F c_pi2)) & G(a_pi1 | !a_pi1)");
             public final HyperLTLFormula thirdFormula = parser.parse("forall pi1. exists pi2. forall pi3. G((a_pi1 & b_pi3) -> F(a_pi2 | c_pi2))");
 
             @Override
@@ -95,8 +98,8 @@ public class TestFormulas extends MetaFormulaSuit {
         }
 
         public static class EAE implements FormulaSuit {
-            public final HyperLTLFormula firstFormula = parser.parse("exists pi1. forall pi2. exists pi3. G(a_pi2 -> F a_pi3)");
-            public final HyperLTLFormula secondFormula = parser.parse("exists pi1. forall pi2. exists pi3. G(b_pi2 -> F c_pi3)");
+            public final HyperLTLFormula firstFormula = parser.parse("exists pi1. forall pi2. exists pi3. (G(a_pi2 -> F a_pi3)) & G(a_pi1 | !a_pi1)");
+            public final HyperLTLFormula secondFormula = parser.parse("exists pi1. forall pi2. exists pi3. (G(b_pi2 -> F c_pi3)) & G(a_pi1 | !a_pi1)");
             public final HyperLTLFormula thirdFormula = parser.parse("exists pi1. forall pi2. exists pi3. G((a_pi2 & b_pi2) -> F(a_pi1 | c_pi3))");
 
             @Override
@@ -114,8 +117,8 @@ public class TestFormulas extends MetaFormulaSuit {
         }
 
         public static class AEAE implements FormulaSuit {
-            public final HyperLTLFormula firstFormula = parser.parse("forall pi1. exists pi2. forall pi3. exists pi4. G(a_pi1 -> F a_pi4)");
-            public final HyperLTLFormula secondFormula = parser.parse("forall pi1. exists pi2. forall pi3. exists pi4. G(b_pi3 -> F c_pi4)");
+            public final HyperLTLFormula firstFormula = parser.parse("forall pi1. exists pi2. forall pi3. exists pi4. ((G(a_pi1 -> F a_pi4)) & G(a_pi2 | !a_pi2)) & G(a_pi3 | !a_pi3)");
+            public final HyperLTLFormula secondFormula = parser.parse("forall pi1. exists pi2. forall pi3. exists pi4. ((G(b_pi3 -> F c_pi4)) & G(a_pi1 | !a_pi1)) & G(a_pi2 | !a_pi2)");
             public final HyperLTLFormula thirdFormula = parser.parse("forall pi1. exists pi2. forall pi3. exists pi4. G((a_pi1 & b_pi3) -> F(a_pi2 | c_pi4))");
 
             @Override
@@ -125,8 +128,8 @@ public class TestFormulas extends MetaFormulaSuit {
         }
 
         public static class EAEA implements FormulaSuit {
-            public final HyperLTLFormula firstFormula = parser.parse("exists pi1. forall pi2. exists pi3. forall pi4. G(a_pi4 -> F a_pi3)");
-            public final HyperLTLFormula secondFormula = parser.parse("exists pi1. forall pi2. exists pi3. forall pi4. G(b_pi2 -> F c_pi1)");
+            public final HyperLTLFormula firstFormula = parser.parse("exists pi1. forall pi2. exists pi3. forall pi4. ((G(a_pi4 -> F a_pi3)) & G(a_pi1 | !a_pi1)) & G(a_pi2 | !a_pi2)");
+            public final HyperLTLFormula secondFormula = parser.parse("exists pi1. forall pi2. exists pi3. forall pi4. ((G(b_pi2 -> F c_pi1)) & G(a_pi3 | !a_pi3)) & G(a_pi4 | !a_pi4)");
             public final HyperLTLFormula thirdFormula = parser.parse("exists pi1. forall pi2. exists pi3. forall pi4. G((a_pi2 & b_pi4) -> F(a_pi1 | c_pi3))");
 
             @Override
