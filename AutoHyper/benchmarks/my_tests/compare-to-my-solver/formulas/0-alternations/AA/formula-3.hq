@@ -1,0 +1,1 @@
+forall pi1. forall pi2. G("a"_pi1 -> X("a"_pi2 | !"a"_pi2))

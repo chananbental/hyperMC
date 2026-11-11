@@ -45,5 +45,7 @@ bin/
 .DS_Store
 .fake
 
-AutoHyper/
 Microsoft/
+
+# Local backup of vendored repositories' Git metadata
+/.repo-metadata-backup/

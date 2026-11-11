@@ -1,0 +1,1 @@
+forall pi1. exists pi2. G("b"_pi1 -> F "c"_pi2)

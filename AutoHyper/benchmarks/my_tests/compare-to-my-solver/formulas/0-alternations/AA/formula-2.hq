@@ -1,0 +1,1 @@
+forall pi1. forall pi2. G(("a"_pi1 & "b"_pi1) -> F "c"_pi2)

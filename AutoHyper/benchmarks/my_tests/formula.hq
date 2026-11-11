@@ -1,0 +1,8 @@
+exists E. forall D. exists C. forall A. exists B.
+    (G
+        (
+            ( ({"0"_A}) & ({"0"_C}))
+            ->
+            ((X {"0"_B}) | ({"0"_D} U {"0"_E}))
+        )
+    )

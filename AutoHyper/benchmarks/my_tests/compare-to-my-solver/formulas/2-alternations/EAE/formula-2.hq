@@ -1,0 +1,1 @@
+exists pi1. forall pi2. exists pi3. G("b"_pi2 -> F "c"_pi3) & G("a"_pi1 | !"a"_pi1)

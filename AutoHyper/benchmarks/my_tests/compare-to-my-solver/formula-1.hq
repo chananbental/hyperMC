@@ -1,0 +1,2 @@
+forall pi1. forall pi2.
+G (("low"_pi1 <-> "low"_pi2) -> ("out"_pi1 <-> "out"_pi2))
