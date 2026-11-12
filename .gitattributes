@@ -1,0 +1,2 @@
+scripts/hpc/*.sh text eol=lf
+scripts/hpc/*.sbatch text eol=lf

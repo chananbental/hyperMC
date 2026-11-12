@@ -1,5 +1,7 @@
 # AutoHyper: Explicit-State Model Checking for HyperLTL
 
+For Linux/Slurm setup, Spot paths, and the custom benchmark runner, see [LINUX.md](LINUX.md).
+
 This repository contains **AutoHyper** (short for either "**Auto**mata-based Model Checking of **Hyper**LTL" or "Fully **Auto**matic **Hyper**LTL Model Checking"), a tool that can model check HyperLTL properties on finite-state systems. 
 
 

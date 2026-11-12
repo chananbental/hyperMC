@@ -1,4 +1,6 @@
 app/
+__pycache__/
 *.hoa
 *.txt
+!/benchmarks/my_tests/compare-to-my-solver/systems/system-*.txt
 *.ba

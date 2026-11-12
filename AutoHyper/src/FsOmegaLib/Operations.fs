@@ -374,7 +374,7 @@ module AutomataUtil =
         (debug : bool)
         (intermediateFilesPath : string)
         (autfiltPath : string)
-        (args : string)
+        (args : list<string>)
         (outputputParser : string -> 'L)
         (hoaString : string)
         =
@@ -384,7 +384,7 @@ module AutomataUtil =
 
             File.WriteAllText(path, hoaString)
 
-            let arg = "autfilt " + args + " " + path + " -o " + targetPath
+            let arg = args @ [ spotPath path; "-o"; spotPath targetPath ]
 
             let res = Util.SubprocessUtil.executeSubprocess Map.empty autfiltPath arg
 
@@ -420,7 +420,7 @@ module AutomataUtil =
         (debug : bool)
         (intermediateFilesPath : string)
         (autfiltPath : string)
-        (args : string)
+        (args : list<string>)
         (opp : string)
         (outputputParser : string -> 'L)
         (hoaString1 : string)
@@ -434,7 +434,7 @@ module AutomataUtil =
             File.WriteAllText(path1, hoaString1)
             File.WriteAllText(path2, hoaString2)
 
-            let arg = "autfilt " + args + " " + opp + path2 + " " + path1 + " -o " + targetPath
+            let arg = args @ [ opp + spotPath path2; spotPath path1; "-o"; spotPath targetPath ]
 
             let res = Util.SubprocessUtil.executeSubprocess Map.empty autfiltPath arg
 
@@ -507,7 +507,6 @@ module AutomataUtil =
 
         let args =
             [ "--small"; "--" + Effort.asString ef; "-S"; "--gba" ] @ operations
-            |> String.concat " "
 
         let hoaOutputputParser c =
             c |> HoaConversion.resultToGNBA |> GNBA.mapAPs apRemapping
@@ -526,7 +525,6 @@ module AutomataUtil =
 
         let args =
             [ "--small"; "--" + Effort.asString ef; "-S"; "-B" ] @ operations
-            |> String.concat " "
 
         let hoaOutputputParser c =
             c |> HoaConversion.resultToNBA |> NBA.mapAPs apRemapping
@@ -544,9 +542,8 @@ module AutomataUtil =
         =
 
         let args =
-            [ "--small"; "--" + Effort.asString ef; "-D"; "-C"; "-S"; "-p\"max even\"" ]
+            [ "--small"; "--" + Effort.asString ef; "-D"; "-C"; "-S"; "-pmax even" ]
             @ operations
-            |> String.concat " "
 
         let hoaOutputputParser c =
             c |> HoaConversion.resultToDPA |> DPA.mapAPs apRemapping
@@ -564,8 +561,7 @@ module AutomataUtil =
         =
 
         let args =
-            [ "--small"; "--" + Effort.asString ef; "-S"; "-p\"max even\"" ] @ operations
-            |> String.concat " "
+            [ "--small"; "--" + Effort.asString ef; "-S"; "-pmax even" ] @ operations
 
         let hoaOutputputParser c =
             c |> HoaConversion.resultToNPA |> NPA.mapAPs apRemapping
@@ -583,7 +579,7 @@ module AutomataUtil =
         =
 
         let args =
-            [ "--small"; "--" + Effort.asString ef; "-M" ] @ operations |> String.concat " "
+            [ "--small"; "--" + Effort.asString ef; "-M" ] @ operations
 
         let hoaOutputputParser c =
             c |> HoaConversion.resultToNSA |> NSA.mapAPs apRemapping
@@ -607,7 +603,6 @@ module AutomataUtil =
 
         let args =
             [ "--small"; "--" + Effort.asString ef; "-S"; "--gba" ] @ operations
-            |> String.concat " "
 
         let hoaOutputputParser c =
             c |> HoaConversion.resultToGNBA |> GNBA.mapAPs apRemapping
@@ -620,14 +615,14 @@ module AutomataUtil =
         (debug : bool)
         (intermediateFilesPath : string)
         (ltl2tgbaPath : string)
-        (args : string)
+        (args : list<string>)
         (outputputParser : string -> 'L)
         (formula : string)
         =
         try
             let targetPath = Path.Combine [| intermediateFilesPath; "autRes.hoa" |]
 
-            let arg = "ltl2tgba " + args + " " + $"\"{formula}\"" + " -o " + targetPath
+            let arg = args @ [ formula; "-o"; spotPath targetPath ]
 
             let res = Util.SubprocessUtil.executeSubprocess Map.empty ltl2tgbaPath arg
 
@@ -936,7 +931,7 @@ module LTLConversion =
     let convertLTLtoGNBA debug (intermediateFilesPath : string) (ltl2tgbaPath : string) (ltl : LTL<'L>) =
         let s, revDict = stringifyLTL ltl
 
-        let args = [ "-S" ] |> String.concat " "
+        let args = [ "-S" ]
 
         let hoaOutputputParser c =
             c |> HoaConversion.resultToGNBA |> GNBA.mapAPs (fun x -> revDict.[x])
@@ -947,7 +942,7 @@ module LTLConversion =
     let convertLTLtoNBA debug (intermediateFilesPath : string) (ltl2tgbaPath : string) (ltl : LTL<'L>) =
         let s, revDict = stringifyLTL ltl
 
-        let args = [ "-S"; "-B" ] |> String.concat " "
+        let args = [ "-S"; "-B" ]
 
         let hoaOutputputParser c =
             c |> HoaConversion.resultToNBA |> NBA.mapAPs (fun x -> revDict.[x])
@@ -959,7 +954,7 @@ module LTLConversion =
     let convertLTLtoDPA debug (intermediateFilesPath : string) (ltl2tgbaPath : string) (ltl : LTL<'L>) =
         let s, revDict = stringifyLTL ltl
 
-        let args = [ "-S"; "-C"; "-D"; "-p\"max even\"" ] |> String.concat " "
+        let args = [ "-S"; "-C"; "-D"; "-pmax even" ]
 
         let hoaOutputputParser c =
             c |> HoaConversion.resultToDPA |> DPA.mapAPs (fun x -> revDict.[x])
@@ -969,7 +964,7 @@ module LTLConversion =
     let convertLTLtoNPA debug (intermediateFilesPath : string) (ltl2tgbaPath : string) (ltl : LTL<'L>) =
         let s, revDict = stringifyLTL ltl
 
-        let args = [ "-S"; "-p\"max even\"" ] |> String.concat " "
+        let args = [ "-S"; "-pmax even" ]
 
         let hoaOutputputParser c =
             c |> HoaConversion.resultToNPA |> NPA.mapAPs (fun x -> revDict.[x])
@@ -980,7 +975,7 @@ module LTLConversion =
     let convertLTLtoNSA debug (intermediateFilesPath : string) (ltl2tgbaPath : string) (ltl : LTL<'L>) =
         let s, revDict = stringifyLTL ltl
 
-        let args = [ "-M" ] |> String.concat " "
+        let args = [ "-M" ]
 
         let hoaOutputputParser c =
             c |> HoaConversion.resultToNSA |> NSA.mapAPs (fun x -> revDict.[x])
@@ -996,7 +991,7 @@ module AutomataChecks =
             let path = Path.Combine [| intermediateFilesPath; "aut1.hoa" |]
             File.WriteAllText(path, s)
 
-            let args = "autfilt " + "--is-empty " + path
+            let args = [ "--is-empty"; spotPath path ]
 
             let res = Util.SubprocessUtil.executeSubprocess Map.empty autfiltPath args
 
@@ -1054,7 +1049,7 @@ module AutomataChecks =
             File.WriteAllText(path1, s1)
             File.WriteAllText(path2, s2)
 
-            let arg = "autfilt " + "--included-in=" + path2 + " " + path1
+            let arg = [ "--included-in=" + spotPath path2; spotPath path1 ]
             let res = Util.SubprocessUtil.executeSubprocess Map.empty autfiltPath arg
 
             match res with
@@ -1112,7 +1107,7 @@ module AutomataChecks =
             File.WriteAllText(path1, s1)
             File.WriteAllText(path2, s2)
 
-            let arg = "--included-in=" + path2 + " " + path1
+            let arg = [ "--included-in=" + spotPath path2; spotPath path1 ]
 
             let res =
                 Util.SubprocessUtil.executeSubprocess
@@ -1175,7 +1170,7 @@ module AutomataChecks =
             File.WriteAllText(path1, s1)
             File.WriteAllText(path2, s2)
 
-            let arg = "autfilt " + "--equivalent-to=" + path2 + " " + path1
+            let arg = [ "--equivalent-to=" + spotPath path2; spotPath path1 ]
             let res = Util.SubprocessUtil.executeSubprocess Map.empty autfiltPath arg
 
             match res with

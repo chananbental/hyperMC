@@ -4,6 +4,11 @@
 dependencies, and the Linux launcher. Commit this directory to make the bundle
 available through a normal Git clone or pull.
 
+`autohyper.zip` contains the portable AutoHyper application and its managed
+dependencies. For extraction, server-specific Spot configuration and Slurm
+submission, see [AutoHyper Linux instructions](../AutoHyper/LINUX.md). The server
+needs the .NET 8 runtime; rebuild this ZIP with `AutoHyper/package-linux.ps1`.
+
 On the server, activate your Java 25 / Spot environment. From the repository root:
 
 ```bash

@@ -1,0 +1,10 @@
+Variables: ("a" Bool) ("b" Bool) ("c" Bool)
+Init: 0
+--BODY--
+State: 0 {("a" false) ("b" false) ("c" false)}
+1 2
+State: 1 {("a" true) ("b" false) ("c" false)}
+1
+State: 2 {("a" false) ("b" true) ("c" true)}
+2
+--END--

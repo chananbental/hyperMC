@@ -44,8 +44,32 @@ module SubprocessUtil =
             ExitCode : int
         }
 
-    let executeSubprocess (envVariables : Map<string, string>) (cmd : string) (arg : string) =
-        let psi = System.Diagnostics.ProcessStartInfo("wsl", arg)
+    // Spot sees Linux paths when invoked through WSL, including paths with spaces.
+    let spotPath (path : string) =
+        if OperatingSystem.IsWindows() then
+            let fullPath = System.IO.Path.GetFullPath(path)
+            if fullPath.Length >= 3 && fullPath.[1] = ':' then
+                "/mnt/" + string (Char.ToLowerInvariant fullPath.[0]) + fullPath.Substring(2).Replace('\\', '/')
+            else
+                invalidArg "path" "Spot under WSL requires a local drive path."
+        else
+            path
+
+    let executeSubprocess (envVariables : Map<string, string>) (cmd : string) (args : list<string>) =
+        let psi = System.Diagnostics.ProcessStartInfo()
+        if OperatingSystem.IsWindows() then
+            psi.FileName <- "wsl"
+            psi.ArgumentList.Add("--exec")
+            if not envVariables.IsEmpty then
+                psi.ArgumentList.Add("env")
+                for (key, value) in Map.toSeq envVariables do
+                    psi.ArgumentList.Add(key + "=" + value)
+            psi.ArgumentList.Add(if System.IO.Path.IsPathRooted(cmd) then spotPath cmd else cmd)
+        else
+            psi.FileName <- cmd
+
+        for arg in args do
+            psi.ArgumentList.Add(arg)
 
         psi.UseShellExecute <- false
         psi.RedirectStandardOutput <- true
@@ -53,7 +77,7 @@ module SubprocessUtil =
         psi.CreateNoWindow <- true
 
         for (var, v) in Map.toSeq envVariables do 
-            psi.Environment.Add(var, v)
+            psi.Environment.[var] <- v
 
         let p = System.Diagnostics.Process.Start(psi)
         let output = System.Text.StringBuilder()
