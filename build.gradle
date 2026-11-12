@@ -58,7 +58,7 @@ tasks.register('benchmarkBundle', Zip) {
             from sourceSets.test.output
         }
         into('lib') { from configurations.benchmarkRuntime }
-        from('scripts/hpc/run-benchmarks.sh') {
+        from(['scripts/hpc/run-benchmarks.sh', 'scripts/hpc/benchmarks.sbatch']) {
             // The bundle must run even when built from a Windows checkout.
             filter(org.apache.tools.ant.filters.FixCrLfFilter, eol: org.apache.tools.ant.filters.FixCrLfFilter.CrLf.newInstance('lf'))
         }

@@ -13,13 +13,20 @@ cd hypermc-benchmarks
 bash run-benchmarks.sh discover
 ```
 
-Inside a compute-node allocation, run:
+From the login node, submit the job with your Conda environment activated:
 
 ```bash
-bash run-benchmarks.sh all > benchmarks.log 2>&1
+bash run-benchmarks.sh submit all
+squeue --me
 ```
 
-Results are saved under `hypermc-benchmarks/results/`. No Gradle or Java
+This requests one CPU, 8 GiB RAM and two hours through `sbatch`, then launches
+the benchmarks through `srun`. These are starting estimates; Java uses a 4 GiB
+heap. No GPU is needed. Keep the checkout and Conda environment in the group's
+shared `work` directory, accessible to compute nodes.
+
+Results are saved under `hypermc-benchmarks/results/job-JOBID/`. Logs are
+`hypermc-benchmarks-JOBID.out` and `.err` in the extracted bundle. No Gradle or Java
 dependency downloads are needed on the server. AutoHyper is run separately.
 
 After changing source code, rebuild on your local computer:
