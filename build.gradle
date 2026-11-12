@@ -33,6 +33,39 @@ test {
     useJUnitPlatform()
 }
 
+configurations {
+    benchmarkRuntime {
+        extendsFrom testRuntimeClasspath
+        canBeConsumed = false
+        canBeResolved = true
+    }
+}
+
+dependencies {
+    benchmarkRuntime 'org.junit.platform:junit-platform-console:1.10.0'
+    benchmarkRuntime 'org.junit.platform:junit-platform-reporting:1.10.0'
+}
+
+tasks.register('benchmarkBundle', Zip) {
+    group = 'distribution'
+    description = 'Build an offline Linux benchmark bundle, including tests and dependencies.'
+    dependsOn tasks.named('testClasses')
+    archiveFileName = 'hypermc-benchmarks.zip'
+    destinationDirectory = layout.projectDirectory.dir('benchmark-bundle')
+    into('hypermc-benchmarks') {
+        into('classes') {
+            from sourceSets.main.output
+            from sourceSets.test.output
+        }
+        into('lib') { from configurations.benchmarkRuntime }
+        from('scripts/hpc/run-benchmarks.sh') {
+            // The bundle must run even when built from a Windows checkout.
+            filter(org.apache.tools.ant.filters.FixCrLfFilter, eol: org.apache.tools.ant.filters.FixCrLfFilter.CrLf.newInstance('lf'))
+        }
+        from('docs/benchmark-bundle.md') { rename { 'README.md' } }
+    }
+}
+
 tasks.register('benchmarkApproximations', Test) {
     group = 'verification'
     description = 'Run the 288 approximation benchmarks against the saved exact baseline (requires Spot).'

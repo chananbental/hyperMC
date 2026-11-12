@@ -1,5 +1,8 @@
 # Running approximation benchmarks on the university HPC
 
+For running the original Excel-exporting benchmark tests without Gradle or
+dependency downloads on the server, see [the portable benchmark bundle](benchmark-bundle.md).
+
 This setup follows the supplied Open University HPC guidelines dated February
 17, 2026 (pages 1–7): connect through `sheshet` to `login`, keep project data in
 your research group's `work` directory, load software using Lmod, and run
